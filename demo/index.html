@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Novix PivotJS Demo</title>
+		
+    <link rel="stylesheet" media="screen" href="css/style.css" />
+    <link rel="stylesheet" media="screen" href="css/handsontable.full.min.css" />
+    <link rel="stylesheet" media="screen" href="css/pivot.css" />
+
+	<!-- external libs from cdnjs -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		
+	<script src="js/highstock.js"></script>
+    <script src="js/highcharts-more.js"></script>
+	<script src="js/modules/treemap.js"></script>
+	<script src="js/pivot.js" type="text/javascript"></script>
+    <script src="js/handsontable.full.min.js" type="text/javascript"></script>
+	
+	<script src="../novix.pivot.renderer.js"></script>
+	<script src="../hightchart_renderers.js"></script>
+	
+</head>
+
+
+
+<body >
+	<div class="diagramWrapper">
+		<div id="output" class="pane"></div>
+	</div>
+	<span class="changesOutput" ></span>
+<script type="text/javascript">
+
+
+    $(function () {
+	
+	
+			var renderers = $.extend({},$.pivotUtilities.novix_renderers, $.pivotUtilities.highchart_renderers);
+	
+			$.getJSON("mps.json", function(mps) {
+			
+				$("#output").pivotUI(mps, {
+					renderers: renderers,
+					rows: ["Party","Province"],
+					cols: ["Age","Gender"],
+					rendererName: "Input Table",
+					rendererOptions: {
+						onEditValues: function (changes) {
+							$(".changesOutput").html(JSON.stringify(changes));
+                        },
+						onDrawTable: function (htTable) {
+                            $(".changesOutput").empty();
+                        },
+					}
+				});
+			});
+
+       
+    });
+
+
+</script>
+
+
+
+</body>
+</html>

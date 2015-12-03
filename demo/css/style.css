@@ -1,0 +1,36 @@
+
+.diagramWrapper {
+	padding: 0px;
+}
+
+/* .pane {
+	max-width: 1600px;
+	margin: 0 auto;
+	height: 500px;
+} */
+
+.novixPivot {
+	min-height: 400px;
+	min-width: 800px;
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #333;
+}
+
+	.novixPivot td.header {
+		background-color: #e6e6e6;
+	}
+	
+	.novixPivot .data {
+		vertical-align: middle;
+		text-align: right;
+	}
+	
+	.novixPivot .total {
+		background-color: #fafafa;
+		font-weight: bold;
+		vertical-align: middle;
+		text-align: right;
+	}
