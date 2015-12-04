@@ -45,6 +45,7 @@ Charts: Use the Highchart library (http://www.highcharts.com/) for charting.
 
 See demo folder for more detailed example.
 
+![image](http://liderafx.com/images/NovixPivotJS_demo.gif)
 
 ## Where is the documentation?
 
